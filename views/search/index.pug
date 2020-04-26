@@ -1,0 +1,7 @@
+h1 #{pageName}
+form(method='GET' action='search/index')
+    input(type="text", name="q")
+    button Search
+ul
+    each user in users
+        li= user.name

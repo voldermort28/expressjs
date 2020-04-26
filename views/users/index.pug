@@ -1,0 +1,7 @@
+h1 #{pageName}
+form(action="/users/search", method="GET" )
+    input#search-form(type="text", name="find")
+    button Search
+ul
+    each user in users
+        li= user.name
