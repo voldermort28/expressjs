@@ -46,9 +46,21 @@ module.exports = {
         console.log(req.body);
         // res.json(req.body)
         req.body.id = shortid.generate();
+
         db.get('users').push(req.body).write()
         // users.push(req.body)
         res.redirect('/users')
+    },
+    delete: (req, res)=>{
+        let id = req.params.id
+        var user = db.get('users').find({id:id}).value()
+        db.get('users').remove(user).write()
+
+        console.log(user);
+
+        res.render('users/index.pug',{
+            users: db.get('users').value()
+        })
     }
 
 }

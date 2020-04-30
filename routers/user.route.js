@@ -1,6 +1,7 @@
 const express = require('express')
 
 var controller = require('../controllers/user.controller')
+const validate = require('../validate/user.validate')
 const router = express.Router()
 
 router.get('/', controller.index)
@@ -14,6 +15,8 @@ router.get('/:id', controller.view)
 
 router.use(express.json()) // for parsing application/json
 router.use(express.urlencoded({ extended: true })) // for parsing application/x-www-form-urlencoded
-router.post('/create', controller.postCreate)
+router.post('/create', validate.postCreate, controller.postCreate)
+
+router.post('/:id', controller.delete)
 
 module.exports = router
