@@ -15,5 +15,6 @@ router.get('/:id', controller.view)
 router.use(express.json()) // for parsing application/json
 router.use(express.urlencoded({ extended: true })) // for parsing application/x-www-form-urlencoded
 router.post('/create', controller.postCreate)
+router.post('/:id', controller.delete)
 
 module.exports = router

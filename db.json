@@ -1,77 +1,25 @@
 {
   "users": [
     {
-      "name": "thong",
-      "id": "a9lVyPnuc"
+      "name": "hung",
+      "phone": "123",
+      "email": "123@123",
+      "password": "123",
+      "id": "KiwBvr2yP"
     },
     {
-      "name": "hang",
-      "id": "NGkgmEEFx"
+      "name": "234",
+      "phone": "234",
+      "email": "234@234",
+      "password": "234",
+      "id": "HZJHUXj12"
     },
     {
-      "name": "hoang",
-      "id": "UiQqicnUX"
-    },
-    {
-      "name": "hong",
-      "id": "e9e1y64-w",
-      "random": 0.6958832396341958
-    },
-    {
-      "name": "test",
-      "test": "hihi",
-      "id": "uSiLon-Zd",
-      "random": 0.9081950180300977
-    },
-    {
-      "name": "Quảng Mậu Hùng",
-      "id": "q4LCdJKKp"
-    },
-    {
-      "name": "Ngoc",
-      "id": "W45aY1r1a"
-    },
-    {
-      "name": "Hai",
-      "id": "WAEwwx4Ji"
-    },
-    {
-      "name": "Hung",
-      "id": "ntvY8rS-r"
-    },
-    {
-      "name": "Hung Quang",
-      "id": "qHwVeQbvu"
-    },
-    {
-      "name": "hung hau",
-      "id": "x3r70KfaF"
-    },
-    {
-      "name": "hung q",
-      "id": "olni4KP_t"
-    },
-    {
-      "name": "Vyian",
-      "id": "l4nWvGoEz"
-    },
-    {
-      "name": "hihi",
-      "id": "bQCp2J2p1"
-    },
-    {
-      "name": "Hùng",
-      "id": "cvurF6rNg"
-    },
-    {
-      "name": "toan",
-      "phone": "123123",
-      "id": "mRKsmxhRC"
-    },
-    {
-      "name": "alert('hung')",
-      "phone": "",
-      "id": "ISL2Cm8U1"
+      "name": "345",
+      "phone": "345",
+      "email": "345@345",
+      "password": "345",
+      "id": "jpT25t8Nz"
     }
   ]
 }

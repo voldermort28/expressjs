@@ -11,11 +11,17 @@ block content
         tr
             th Name
             th Phone
+            th Email
+            th Password
             th Action
 
         each user in users
             tr
                 td= user.name
                 td= user.phone
-                td
+                td= user.email
+                td= user.password
+                td(class="d-flex")
                     a.btn.btn-primary(href='/users/' + user.id) View
+                    form(method='POST' action='/users/' + user.id)
+                        button.btn.btn-danger.ml-2(type="submit") Delete
