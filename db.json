@@ -1,13 +1,6 @@
 {
   "users": [
     {
-      "name": "hung",
-      "phone": "123",
-      "email": "123@123",
-      "password": "123",
-      "id": "KiwBvr2yP"
-    },
-    {
       "name": "234",
       "phone": "234",
       "email": "234@234",
@@ -20,6 +13,34 @@
       "email": "345@345",
       "password": "345",
       "id": "jpT25t8Nz"
+    },
+    {
+      "name": "123",
+      "phone": "123",
+      "email": "123@123",
+      "password": "123",
+      "id": "wDkHKB0zY"
+    },
+    {
+      "name": "45",
+      "phone": "345",
+      "email": "345@345",
+      "password": "456",
+      "id": "FBMdEA4qG"
+    },
+    {
+      "name": "123",
+      "phone": "234",
+      "email": "234@234",
+      "password": "234",
+      "id": "WRTluudOy"
+    },
+    {
+      "name": "12",
+      "phone": "123",
+      "email": "123@123",
+      "password": "23",
+      "id": "5Ejvtk2CY"
     }
   ]
 }

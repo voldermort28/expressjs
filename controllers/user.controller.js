@@ -58,7 +58,8 @@ module.exports = {
         console.log(user);
 
         res.render('users/index.pug',{
-            users: db.get('users').value()
+            users: db.get('users').value(),
+            pageName:'User Page'
         })
     }
 }
