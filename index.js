@@ -1,6 +1,11 @@
 const express = require('express');
 // const db = require('./db.js')
+const cookieParser = require('cookie-parser')
+
 const userRoute = require('./routers/user.route')
+const authRoute = require('./routers/auth.route')
+
+const authMiddleware = require('./middleware/auth.middleware')
 
 const port = 3000
 
@@ -13,7 +18,17 @@ app.get('/', (req, res) => {
 });
 
 // app.use(express.static(__dirname + '/public'));
-app.use('/users', userRoute)
+app.set('view engine', 'pug')
+
+app.use(express.json()) // for parsing application/json
+app.use(express.urlencoded({ extended: true })) // for parsing application/x-www-form-urlencoded
+
+app.use(cookieParser())
+
+app.use('/users', authMiddleware.requireAuth, userRoute)
+
+app.use('/auth', authRoute)
+
 app.use(express.static('public'))
 
 app.listen(port, () => {

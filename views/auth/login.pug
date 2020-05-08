@@ -6,10 +6,10 @@ block content
         each error in errors
             .alert.alert-warning= error
 
-    form(action="/users/create", method="POST")
+    form(action="/auth/login", method="POST")
         .form-group
             label(for="email") Email: 
-            input#email.form-control(type="Email", name="Email", class="ml-2", value = value ? value.Email : "")
+            input#email.form-control(type="email", name="email", class="ml-2", value = value ? value.email : "")
         .form-group
             label(for="password") Password: 
             input#password.form-control(type="password", name="password", class="ml-2", value = value ? value.password : "")

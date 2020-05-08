@@ -3,7 +3,13 @@ extends ./layouts/common.pug
 block content
 
     h1 Hello #{email}
-    p
-        a.btn.btn-secondary(href="users") Link to user
+    .container
+        .row.d-flex.flex-row
+            p.mr-5
+                a.btn.btn-secondary(href="users") Link to user
+            p.mr-5
+                a.btn.btn-secondary(href="/auth/login") Login
+            p.mr-5
+                a.btn.btn-secondary(href="users/create") Create User
     p
         img(src="/img/OP.jpg" style="width:500px")

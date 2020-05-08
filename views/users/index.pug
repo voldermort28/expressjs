@@ -4,7 +4,7 @@ block content
     h1
         span.mr-2 #{pageName}
         a.btn.btn-primary(href="/users/create") Create new
-    form(method='GET' action='/users/search', class="d-flex")
+    form(method='GET', action='/users/search', class="d-flex")
         input(type="text", name="findKey", class="form-control")
         button(class="btn btn-primary ml-2") Search
     table.table
