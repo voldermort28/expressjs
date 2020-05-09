@@ -5,9 +5,17 @@ const md5 = require('md5');
 module.exports = {
     index : (req, res) => {
         // console.log(db.get('users').value());
+        let page = parseInt(req.query.page) || 1
+        let perPage = 10
+        let start = (page -1)* perPage
+        let end = page * perPage
+
         res.render('users/index.pug',{
-            users: db.get('users').value(),
-            pageName: 'User Page'
+            users: db.get('users').value().slice(start, end),
+            pageName: 'User Page',
+            page: page,
+            prevPage: page-1,
+            nextPage: page+1 
         })
     },
     search : (req, res)=>{

@@ -25,3 +25,18 @@ block content
                     a.btn.btn-primary(href='/users/' + user.id) View
                     form(method='POST' action='/users/' + user.id)
                         button.btn.btn-danger.ml-2(type="submit") Delete
+
+    nav(aria-label='...')
+        ul.pagination
+            li.page-item.disabled
+            a.page-link(href='/users?page=' + prevPage) Previous
+            li.page-item
+            a.page-link(href='/users?page=' + prevPage) #{prevPage}
+            li.page-item.active(aria-current='page')
+            a.page-link(href='/users?page=' + page)
+                | #{page}
+                span.sr-only (current)
+            li.page-item
+            a.page-link(href='/users?page=' + nextPage) #{nextPage}
+            li.page-item
+            a.page-link(href='/users?page=' + nextPage) Next

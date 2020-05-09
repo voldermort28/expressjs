@@ -2,6 +2,8 @@ const express = require('express');
 // const db = require('./db.js')
 const cookieParser = require('cookie-parser')
 
+// const paginate = require('express-paginate');
+
 const userRoute = require('./routers/user.route')
 const authRoute = require('./routers/auth.route')
 
