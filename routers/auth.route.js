@@ -14,4 +14,6 @@ router.get('/login', controller.login)
 
 router.post('/login', validate.postLogin, controller.postLogin)
 
+router.get('/logout', controller.clearCookie)
+
 module.exports = router

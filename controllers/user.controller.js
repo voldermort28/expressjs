@@ -1,5 +1,6 @@
 const db = require('../db.js')
 const shortid = require('shortid');
+const md5 = require('md5');
 
 module.exports = {
     index : (req, res) => {
@@ -46,6 +47,7 @@ module.exports = {
         console.log(req.body);
         // res.json(req.body)
         req.body.id = shortid.generate();
+        req.body.password = md5(req.body.password)
         db.get('users').push(req.body).write()
         // users.push(req.body)
         res.redirect('/users')

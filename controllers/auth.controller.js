@@ -1,4 +1,5 @@
 const db = require('../db.js')
+const md5 = require('md5');
 
 
 module.exports = {
@@ -36,15 +37,22 @@ module.exports = {
             })
             return;
         }
-        if (user.password !== password){
+
+        hashedPassword = md5(password)
+        if (user.password !== hashedPassword){
             res.render('auth/login',{
                 errors: ['Wrong password'],
                 value: req.body
             })
             return;
         }
-        res.cookie('userId', user.id)
+        res.cookie('userId', user.id,{signed:true})
         res.redirect('/users')
+    },
+    clearCookie: (req, res)=>{
+        res.clearCookie('userId')
+        res.redirect('/auth/login')
+        console.log('Cookie is delete');
     }
 }
 
