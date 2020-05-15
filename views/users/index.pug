@@ -9,6 +9,7 @@ block content
         button(class="btn btn-primary ml-2") Search
     table.table
         tr
+            th Avatar
             th Name
             th Phone
             th Email
@@ -17,6 +18,8 @@ block content
 
         each user in users
             tr
+                td
+                    img(src= user.avatar, width="50px")
                 td= user.name
                 td= user.phone
                 td= user.email
@@ -25,18 +28,23 @@ block content
                     a.btn.btn-primary(href='/users/' + user.id) View
                     form(method='POST' action='/users/' + user.id)
                         button.btn.btn-danger.ml-2(type="submit") Delete
-
     nav(aria-label='...')
         ul.pagination
+            li.page-item.disabled
+            a.page-link(href='/users?page=1') First
             li.page-item.disabled
             a.page-link(href='/users?page=' + prevPage) Previous
             li.page-item
             a.page-link(href='/users?page=' + prevPage) #{prevPage}
             li.page-item.active(aria-current='page')
-            a.page-link(href='/users?page=' + page)
-                | #{page}
-                span.sr-only (current)
+                span.page-link  #{page}
+                    span.sr-only (current)
             li.page-item
             a.page-link(href='/users?page=' + nextPage) #{nextPage}
             li.page-item
             a.page-link(href='/users?page=' + nextPage) Next
+            li.page-item
+            a.page-link(href='/users?page=' + lastPage) Last
+            li.page-item
+                form(method='GET')
+                    input(type="text", name="page", class="form-control")

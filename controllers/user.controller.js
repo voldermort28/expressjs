@@ -2,6 +2,7 @@ const db = require('../db.js')
 const shortid = require('shortid');
 const md5 = require('md5');
 
+
 module.exports = {
     index : (req, res) => {
         // console.log(db.get('users').value());
@@ -9,13 +10,17 @@ module.exports = {
         let perPage = 10
         let start = (page -1)* perPage
         let end = page * perPage
+        let numberUser = db.get('users').size().value()
+
+        console.log(db.get('users').size().value());
 
         res.render('users/index.pug',{
             users: db.get('users').value().slice(start, end),
             pageName: 'User Page',
             page: page,
             prevPage: page-1,
-            nextPage: page+1 
+            nextPage: page+1 ,
+            lastPage: numberUser / perPage + 1
         })
     },
     search : (req, res)=>{
@@ -56,6 +61,15 @@ module.exports = {
         // res.json(req.body)
         req.body.id = shortid.generate();
         req.body.password = md5(req.body.password)
+        req.body.avatar = req.file.path.split('\\').slice(1).join("\\")
+
+
+
+        // var fileName = []
+        // fileName.push(req.file.path.split('\\').slice(1).shift(), req.file.originalname)
+        // req.body.avatar = fileName.join("\\")
+
+
         db.get('users').push(req.body).write()
         // users.push(req.body)
         res.redirect('/users')

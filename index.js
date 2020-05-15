@@ -1,5 +1,4 @@
 const express = require('express');
-// const db = require('./db.js')
 const cookieParser = require('cookie-parser')
 
 // const paginate = require('express-paginate');
@@ -26,11 +25,8 @@ app.use(express.json()) // for parsing application/json
 app.use(express.urlencoded({ extended: true })) // for parsing application/x-www-form-urlencoded
 
 app.use(cookieParser('quangmauhung'))
-
 app.use('/users', authMiddleware.requireAuth, userRoute)
-
 app.use('/auth', authRoute)
-
 app.use(express.static('public'))
 
 app.listen(port, () => {
