@@ -1,6 +1,7 @@
 const db = require('../db.js')
 const shortid = require('shortid');
 const md5 = require('md5');
+var path = require('path')
 
 
 module.exports = {
@@ -61,13 +62,27 @@ module.exports = {
         // res.json(req.body)
         req.body.id = shortid.generate();
         req.body.password = md5(req.body.password)
-        req.body.avatar = req.file.path.split('\\').slice(1).join("\\")
+        // req.body.avatar = req.file.path.split('\\').slice(1).join("\\")
 
 
 
-        // var fileName = []
-        // fileName.push(req.file.path.split('\\').slice(1).shift(), req.file.originalname)
-        // req.body.avatar = fileName.join("\\")
+        var fileName = []
+        fileName.push(req.file.path.split('\\').slice(1).shift(), req.file.originalname)
+        req.body.avatar = fileName.join("\\")
+
+        // var multer = require('multer');
+        // var path = require('path')
+
+        // var storage = multer.diskStorage({
+        // destination: function (req, file, cb) {
+        //     cb(null, 'uploads/')
+        // },
+        // filename: function (req, file, cb) {
+        //     cb(null, Date.now() + path.extname(file.originalname)) //Appending extension
+        // }
+        // })
+
+        // var upload = multer({ storage: storage });
 
 
         db.get('users').push(req.body).write()

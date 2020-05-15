@@ -4,7 +4,19 @@ const multer = require('multer')
 const controller = require('../controllers/user.controller')
 const validate = require('../validate/user.validate')
 
-const upload = multer({ dest: './public/img/' })
+// const upload = multer({ dest: './public/img/' })
+// var path = require('path')
+
+var storage = multer.diskStorage({
+    destination: function (req, file, cb) {
+        cb(null, './public/img/')
+    },
+    filename: function (req, file, cb) {
+        cb(null, file.originalname) //Appending extension
+    }
+})
+
+var upload = multer({ storage: storage });
 
 const router = express.Router()
 
