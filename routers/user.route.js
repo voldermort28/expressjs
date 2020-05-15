@@ -1,22 +1,23 @@
 const express = require('express')
-const multer = require('multer')
+// const multer = require('multer')
 
 const controller = require('../controllers/user.controller')
 const validate = require('../validate/user.validate')
+const upload = require('../middleware/uploadimage.middleware')
 
 // const upload = multer({ dest: './public/img/' })
 // var path = require('path')
 
-var storage = multer.diskStorage({
-    destination: function (req, file, cb) {
-        cb(null, './public/img/')
-    },
-    filename: function (req, file, cb) {
-        cb(null, file.originalname) //Appending extension
-    }
-})
+// var storage = multer.diskStorage({
+//     destination: function (req, file, cb) {
+//         cb(null, './public/img/')
+//     },
+//     filename: function (req, file, cb) {
+//         cb(null, file.originalname) //Appending extension
+//     }
+// })
 
-var upload = multer({ storage: storage });
+// var upload = multer({ storage: storage });
 
 const router = express.Router()
 
