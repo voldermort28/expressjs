@@ -24,6 +24,8 @@ html(lang="en")
             if user
                 ul.navbar-nav
                     li.nav-item
+                        img(src= user.avatar, width="50px", alt="avatar")
+                    li.nav-item
                         a.nav-link= user.name
                     li.nav-item
                         a.nav-link(href='/auth/logout') Logout

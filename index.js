@@ -5,6 +5,7 @@ const cookieParser = require('cookie-parser')
 
 const userRoute = require('./routers/user.route')
 const authRoute = require('./routers/auth.route')
+const apiRoute = require('./api/routers/userapi.route')
 
 const authMiddleware = require('./middleware/auth.middleware')
 
@@ -27,6 +28,7 @@ app.use(express.urlencoded({ extended: true })) // for parsing application/x-www
 app.use(cookieParser('quangmauhung'))
 app.use('/users', authMiddleware.requireAuth, userRoute)
 app.use('/auth', authRoute)
+app.use('/api/users', apiRoute)
 app.use(express.static('public'))
 
 app.listen(port, () => {
